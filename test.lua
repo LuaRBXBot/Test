@@ -337,14 +337,14 @@ function Kavo.CreateLib(kavName, themeList)
         ScreenGui:Destroy()
     end)
 
-    hide.Name = "hide"
+    hide.Name = "Hide"
     hide.Parent = MainHeader
-    hide.BackgroundTransparency = 1.000
-    hide.Position = UDim2.new(0.849999988, 0, 0.137999997, 0)
-    hide.Size = UDim2.new(0, 21, 0, 21)
-    hide.ZIndex = 2
+    hide.Size = UDim2.new(0, 135, 0, 28)
+    hide.Font = Enum.Font.Gotham
     hide.Text = "_"
-    hide.TextSize = 13
+    hide.TextColor3 = Color3.fromRGB(255,255,255)
+    hide.TextSize = 14.000
+    hide.BackgroundTransparency = 1
     hide.MouseButton1Click:Connect(function()
         Main.Size = UDim2.new(0, 525, 0, 35)
         if MainSide.Visible == true then
