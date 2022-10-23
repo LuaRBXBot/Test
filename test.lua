@@ -345,8 +345,6 @@ function Kavo.CreateLib(kavName, themeList)
     hide.ZIndex = 2
     hide.Text = "_"
     hide.TextSize = 13
-    hide.ImageRectOffset = Vector2.new(284, 4)
-    hide.ImageRectSize = Vector2.new(24, 24)
     hide.MouseButton1Click:Connect(function()
         Main.Size = UDim2.new(0, 525, 0, 35)
         if MainSide.Visible == true then
