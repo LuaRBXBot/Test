@@ -340,27 +340,24 @@ function Kavo.CreateLib(kavName, themeList)
     hide.Name = "hide"
     hide.Parent = MainHeader
     hide.BackgroundTransparency = 1.000
-    hide.Position = UDim2.new()
+    hide.Position = UDim2.new(0.749999988, 0, 0.137999997, 0)
     hide.Size = UDim2.new(0, 21, 0, 21)
     hide.ZIndex = 2
     hide.Image = "rbxassetid://6764432408"
     hide.ImageRectOffset = Vector2.new(284, 4)
     hide.ImageRectSize = Vector2.new(24, 24)
     hide.MouseButton1Click:Connect(function()
-        game.TweenService:Create(hide, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
-            ImageTransparency = 1
-        }):Play()
         wait()
-        game.TweenService:Create(MainSide, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+        game.TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
 			Size = UDim2.new(0,0,0,0),
-			Position = UDim2.new(0, MainSide.AbsolutePosition.X + (MainSide.AbsoluteSize.X / 2), 0, MainSide.AbsolutePosition.Y + (MainSide.AbsoluteSize.Y / 2))
+			Position = UDim2.new(0, Main.AbsolutePosition.X + (MainSide.AbsoluteSize.X / 2), 0, MainSide.AbsolutePosition.Y + (MainSide.AbsoluteSize.Y / 2))
 		}):Play()
         wait(1)
-        MainSide.Visible = false
-        if MainSide.Visible == false then
-            MainSide.Visible = true
+        Main.Visible = false
+        if Main.Visible == false then
+            Main.Visible = true
         else
-            MainSide.Visible = false
+            Main.Visible = false
         end
     end)
 
