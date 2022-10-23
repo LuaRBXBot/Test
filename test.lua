@@ -1,4 +1,5 @@
 local Kavo = {}
+
 local tween = game:GetService("TweenService")
 local tweeninfo = TweenInfo.new
 local input = game:GetService("UserInputService")
@@ -9,7 +10,7 @@ local Objects = {}
 function Kavo:DraggingEnabled(frame, parent)
         
     parent = parent or frame
- 
+    
     -- Тут начинается приступ говнокода 5 степени :)
     local dragging = false
     local dragInput, mousePos, framePos
@@ -244,6 +245,7 @@ function Kavo.CreateLib(kavName, themeList)
     local coverup = Instance.new("Frame")
     local title = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
+    local hide = Instance.new("ImageButton")
     local MainSide = Instance.new("Frame")
     local sideCorner = Instance.new("UICorner")
     local coverup_2 = Instance.new("Frame")
@@ -306,7 +308,7 @@ function Kavo.CreateLib(kavName, themeList)
     title.BorderSizePixel = 0
     title.Position = UDim2.new(0.0171428565, 0, 0.344827592, 0)
     title.Size = UDim2.new(0, 204, 0, 8)
-    title.Font = Enum.Font.Gotham
+    title.Font = Enum.Font.SciFi
     title.RichText = true
     title.Text = kavName
     title.TextColor3 = Color3.fromRGB(245, 245, 245)
@@ -333,6 +335,33 @@ function Kavo.CreateLib(kavName, themeList)
 		}):Play()
         wait(1)
         ScreenGui:Destroy()
+    end)
+
+    hide.Name = "hide"
+    hide.Parent = MainHeader
+    hide.BackgroundTransparency = 1.000
+    hide.Position = UDim2.new()
+    hide.Size = UDim2.new(0, 21, 0, 21)
+    hide.ZIndex = 2
+    hide.Image = "rbxassetid://6764432408"
+    hide.ImageRectOffset = Vector2.new(284, 4)
+    hide.ImageRectSize = Vector2.new(24, 24)
+    hide.MouseButton1Click:Connect(function()
+        game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
+            ImageTransparency = 1
+        }):Play()
+        wait()
+        game.TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+			Size = UDim2.new(0,0,0,0),
+			Position = UDim2.new(0, Main.AbsolutePosition.X + (Main.AbsoluteSize.X / 2), 0, Main.AbsolutePosition.Y + (Main.AbsoluteSize.Y / 2))
+		}):Play()
+        wait(1)
+        Main.Visible = false
+        if Main.Visible == false then
+            Main.Visible = true
+        else
+            Main.Visible = false
+        end
     end)
 
     MainSide.Name = "MainSide"
@@ -1014,7 +1043,7 @@ function Kavo.CreateLib(kavName, themeList)
                 end)()
             end 
 
-                function Elements:NewCheckBox(tname, nTip, callback)
+                function Elements:NewCheckbox(tname, nTip, callback)
                     local TogFunction = {}
                     tname = tname or "Checkbox"
                     nTip = nTip or "Prints Current Toggle State"
