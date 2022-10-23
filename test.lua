@@ -347,17 +347,15 @@ function Kavo.CreateLib(kavName, themeList)
     hide.ImageRectOffset = Vector2.new(284, 4)
     hide.ImageRectSize = Vector2.new(24, 24)
     hide.MouseButton1Click:Connect(function()
-        wait()
-        game.TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-			Size = UDim2.new(0,0,0,0),
-			Position = UDim2.new(0, Main.AbsolutePosition.X + (MainSide.AbsoluteSize.X / 2), 0, MainSide.AbsolutePosition.Y + (MainSide.AbsoluteSize.Y / 2))
-		}):Play()
-        wait(1)
-        Main.Visible = false
-        if Main.Visible == false then
-            Main.Visible = true
-        else
-            Main.Visible = false
+        Main.Size = UDim2.new(0, 525, 0, 35)
+        if MainSide.Visible == true then
+            MainSide.Visible = false
+            pages.Visible = false
+            Main.Size = UDim2.new(0, 525, 0, 35)
+        elseif MainSide.Visible == false then
+            pages.Visible = true
+            MainSide.Visible = true
+            Main.Size = UDim2.new(0, 525, 0, 318)
         end
     end)
 
