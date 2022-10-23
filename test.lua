@@ -245,7 +245,7 @@ function Kavo.CreateLib(kavName, themeList)
     local coverup = Instance.new("Frame")
     local title = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
-    local hide = Instance.new("ImageButton")
+    local hide = Instance.new("TextButton")
     local MainSide = Instance.new("Frame")
     local sideCorner = Instance.new("UICorner")
     local coverup_2 = Instance.new("Frame")
@@ -340,10 +340,11 @@ function Kavo.CreateLib(kavName, themeList)
     hide.Name = "hide"
     hide.Parent = MainHeader
     hide.BackgroundTransparency = 1.000
-    hide.Position = UDim2.new(0.749999988, 0, 0.137999997, 0)
+    hide.Position = UDim2.new(0.849999988, 0, 0.137999997, 0)
     hide.Size = UDim2.new(0, 21, 0, 21)
     hide.ZIndex = 2
-    hide.Image = "rbxassetid://6764432408"
+    hide.Text = "_"
+    hide.TextSize = 13
     hide.ImageRectOffset = Vector2.new(284, 4)
     hide.ImageRectSize = Vector2.new(24, 24)
     hide.MouseButton1Click:Connect(function()
