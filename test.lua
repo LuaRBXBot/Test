@@ -340,7 +340,7 @@ function Kavo.CreateLib(kavName, themeList)
     hide.Name = "Hide"
     hide.Parent = MainHeader
     hide.Position = UDim2.new(0.849999988, 0, 0.137999997, 0)
-    hide.Size = UDim2.new(0, 135, 0, 28)
+    hide.Size = UDim2.new(0, 21, 0, 21)
     hide.Font = Enum.Font.Gotham
     hide.Text = "_"
     hide.TextColor3 = Color3.fromRGB(255,255,255)
