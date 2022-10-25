@@ -337,14 +337,14 @@ function Kavo.CreateLib(kavName, themeList)
         ScreenGui:Destroy()
     end)
 
-    hide.Name = "Hide"
+    hide.Name = "cide"
     hide.Parent = MainHeader
     hide.BackgroundTransparency = 1.000
     hide.Position = UDim2.new(0.905, 0,0.121, 0)
     hide.Size = UDim2.new(0, 21, 0, 21)
     hide.ZIndex = 2
     hide.Image = "rbxassetid://3926307971"
-    hide.ImageRectOffset = Vector2.new(884, 280)
+    hide.ImageRectOffset = Vector2.new(884, 284)
     hide.ImageRectSize = Vector2.new(36, 36)
     hide.MouseButton1Click:Connect(function()
         Main.Size = UDim2.new(0, 525, 0, 35)
