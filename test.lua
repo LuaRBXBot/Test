@@ -240,7 +240,7 @@ function oyom.CreateLib(oyoName, themeList)
 	local coverup = Instance.new("Frame")
 	local title = Instance.new("TextLabel")
 	local close = Instance.new("ImageButton")
-	local hide = Instance.new("TextButton")
+	local Hide = Instance.new("TextButton")
 	local MainSide = Instance.new("Frame")
 	local sideCorner = Instance.new("UICorner")
 	local coverup_2 = Instance.new("Frame")
@@ -306,57 +306,13 @@ function oyom.CreateLib(oyoName, themeList)
 	title.Font = Enum.Font.SciFi
 	title.RichText = true
 	title.Text = oyoName
-	title.TextColor3 = Color3.fromRGB(245, 245, 245)
+	title.TextColor3 = themeList.TextColor
 	title.TextSize = 16.000
 	title.TextXAlignment = Enum.TextXAlignment.Left
 
-	close.Name = "close"
-	close.Parent = MainHeader
-	close.BackgroundTransparency = 1.000
-	close.Position = UDim2.new(0.949999988, 0, 0.137999997, 0)
-	close.Size = UDim2.new(0, 21, 0, 21)
-	close.ZIndex = 2
-	close.Image = "rbxassetid://3926305904"
-	close.ImageRectOffset = Vector2.new(284, 4)
-	close.ImageRectSize = Vector2.new(24, 24)
-	close.MouseButton1Click:Connect(function()
-		game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
-			ImageTransparency = 1
-		}):Play()
-		wait()
-		game.TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-			Size = UDim2.new(0,0,0,0),
-			Position = UDim2.new(0, Main.AbsolutePosition.X + (Main.AbsoluteSize.X / 2), 0, Main.AbsolutePosition.Y + (Main.AbsoluteSize.Y / 2))
-		}):Play()
-		wait(1)
-		ScreenGui:Destroy()
-	end)
-
-	hide.Name = "hide"
-	hide.Parent = MainHeader
-	hide.BackgroundTransparency = 1.000
-	hide.Position = UDim2.new(0.905, 0,0.121, 0)
-	hide.Size = UDim2.new(0, 21, 0, 21)
-	hide.ZIndex = 2
-	hide.Image = "rbxassetid://3926307971"
-	hide.ImageRectOffset = Vector2.new(884, 284)
-	hide.ImageRectSize = Vector2.new(36, 36)
-	hide.MouseButton1Click:Connect(function()
-		Main.Size = UDim2.new(0, 525, 0, 35)
-		if MainSide.Visible == true then
-			MainSide.Visible = false
-			pages.Visible = false
-			Main.Size = UDim2.new(0, 525, 0, 35)
-		elseif MainSide.Visible == false then
-			pages.Visible = true
-			MainSide.Visible = true
-			Main.Size = UDim2.new(0, 525, 0, 318)
-		end
-	end)
-
 	MainSide.Name = "MainSide"
 	MainSide.Parent = Main
-	MainSide.BackgroundColor3 = Color3.new(0.109804, 0.113725, 0.133333)
+	MainSide.BackgroundColor3 = themeList.Header
 	Objects[MainSide] = "Header"
 	MainSide.BorderSizePixel = 0
 	MainSide.Position = UDim2.new(-7.4505806e-09, 0, 0.0849056542, 0)
@@ -365,10 +321,10 @@ function oyom.CreateLib(oyoName, themeList)
 	sideCorner.CornerRadius = UDim.new(0, 4)
 	sideCorner.Name = "sideCorner"
 	sideCorner.Parent = MainSide
-
+	
 	coverup_2.Name = "coverup_2"
 	coverup_2.Parent = MainSide
-	coverup_2.BackgroundColor3 = Color3.new(0.109804, 0.113725, 0.133333)
+	coverup_2.BackgroundColor3 = themeList.Header
 	Objects[coverup_2] = "Header"
 	coverup_2.BorderSizePixel = 0
 	coverup_2.Position = UDim2.new(0.949939311, 0, 0, 0)
@@ -396,13 +352,14 @@ function oyom.CreateLib(oyoName, themeList)
 	user.Name = "user"
 	user.Parent = UserInfo
 	user.BackgroundColor3 = Color3.new(0.109804, 0.113725, 0.133333)
+	user.BackgroundTransparency = 1
 	user.BorderColor3 = Color3.new(0.0666667, 0.207843, 0.00392157)
 	user.BorderSizePixel = 0
 	user.Position = UDim2.new(0.364864856, 0, 0.210622519, 0)
 	user.Size = UDim2.new(0, 87, 0, 11)
 	user.Font = Enum.Font.SourceSans
 	user.Text = User
-	user.TextColor3 = Color3.new(0.960784, 0.960784, 0.960784)
+	user.TextColor3 = themeList.TextColor
 	user.TextSize = 20
 	user.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -425,9 +382,6 @@ function oyom.CreateLib(oyoName, themeList)
 	pages.Position = UDim2.new(0.299047589, 0, 0.122641519, 0)
 	pages.Size = UDim2.new(0, 360, 0, 269)
 
-	Pages.Name = "Pages"
-	Pages.Parent = pages
-
 	infoContainer.Name = "infoContainer"
 	infoContainer.Parent = Main
 	infoContainer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -437,6 +391,29 @@ function oyom.CreateLib(oyoName, themeList)
 	infoContainer.Position = UDim2.new(0.299047619, 0, 0.874213815, 0)
 	infoContainer.Size = UDim2.new(0, 368, 0, 33)
 
+	Pages.Name = "Pages"
+	Pages.Parent = pages
+	close.Name = "close"
+	close.Parent = MainHeader
+	close.BackgroundTransparency = 1.000
+	close.Position = UDim2.new(0.949999988, 0, 0.137999997, 0)
+	close.Size = UDim2.new(0, 21, 0, 21)
+	close.ZIndex = 2
+	close.Image = "rbxassetid://3926305904"
+	close.ImageRectOffset = Vector2.new(284, 4)
+	close.ImageRectSize = Vector2.new(24, 24)
+	close.MouseButton1Click:Connect(function()
+		game.TweenService:Create(close, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
+			ImageTransparency = 1
+		}):Play()
+		wait()
+		game.TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+			Size = UDim2.new(0,0,0,0),
+			Position = UDim2.new(0, Main.AbsolutePosition.X + (Main.AbsoluteSize.X / 2), 0, Main.AbsolutePosition.Y + (Main.AbsoluteSize.Y / 2))
+		}):Play()
+		wait(1)
+		ScreenGui:Destroy()
+	end)
 
 	coroutine.wrap(function()
 		while wait() do
