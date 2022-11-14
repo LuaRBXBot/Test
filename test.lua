@@ -8,9 +8,12 @@ local run = game:GetService("RunService")
 local Utility = {}
 local Objects = {}
 function oyom:DraggingEnabled(frame, parent)
+
 	parent = parent or frame
+
 	local dragging = false
 	local dragInput, mousePos, framePos
+
 	frame.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 then
 			dragging = true
@@ -230,6 +233,9 @@ function oyom.CreateLib(oyoName, themeList)
 	local Main = Instance.new("Frame")
 	local MainCorner = Instance.new("UICorner")
 	local MainHeader = Instance.new("Frame")
+	local UserInfo = Instance.new("Frame")
+	local user = Instance.new("TextLabel")
+	local UserImageLabel = Instance.new("ImageLabel")
 	local headerCover = Instance.new("UICorner")
 	local coverup = Instance.new("Frame")
 	local title = Instance.new("TextLabel")
@@ -2737,4 +2743,4 @@ function oyom.CreateLib(oyoName, themeList)
 	end  
 	return Tabs
 end
-return oyom	
+return oyom
